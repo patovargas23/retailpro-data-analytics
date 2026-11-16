@@ -3,6 +3,7 @@
 Patricio Vargas
 
 Motor: PostgreSQL 17 (pgAdmin 4)
+
 Base: Ventas_Tech_DB
 
 ## Pre-entrega 3 - Creación de la base
