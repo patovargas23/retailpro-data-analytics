@@ -5,7 +5,7 @@
 -- unida a productos por productos.id_categoria -> categorias.id_categoria).
 
 
--- === CONSULTA 1: Vista base del proyecto (INNER JOIN) ===
+-- CONSULTA 1: Vista base del proyecto (INNER JOIN)
 -- Junta cada venta con su cliente, su producto y la categoría del producto.
 -- Es la fuente principal para Power BI: clientes.ciudad sirve para agrupar
 -- y categorias.nombre_categoria para filtrar.
@@ -29,7 +29,7 @@ ORDER BY v.fecha_venta;
 -- Computación (Laptop Pro 15 y Monitor 4K 27) concentra la mayor parte de v.cantidad * v.precio_unitario.
 
 
--- === CONSULTA 2: Clientes sin ventas (LEFT JOIN) ===
+-- CONSULTA 2: Clientes sin ventas (LEFT JOIN)
 -- Para CRM: clientes registrados que todavía no tienen ninguna fila en ventas.
 SELECT
     c.nombre,
@@ -42,7 +42,7 @@ WHERE v.id_venta IS NULL;
 -- así que por ahora CRM no tiene clientes inactivos para una campaña de primera compra.
 
 
--- === CONSULTA 3: Productos sin ventas (LEFT JOIN) ===
+-- CONSULTA 3: Productos sin ventas (LEFT JOIN)
 -- Para el área de producto: artículos del catálogo sin ninguna venta registrada.
 SELECT
     p.nombre_producto,
@@ -56,7 +56,7 @@ WHERE v.id_venta IS NULL;
 -- así que el área de producto no tiene artículos sin rotación para revisar o discontinuar.
 
 
--- === CONSULTA 4: Consolidado por canal (UNION ALL) ===
+-- CONSULTA 4: Consolidado por canal (UNION ALL)
 -- La columna origen no existe en las tablas: la creo como texto fijo en cada SELECT.
 -- Separo las ventas por quincena de marzo 2024 según v.fecha_venta.
 SELECT
