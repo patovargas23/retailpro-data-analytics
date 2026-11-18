@@ -36,3 +36,22 @@ Hallazgos principales (están comentados al final del script):
 - El Mouse es lo que más unidades vende pero factura poco: se podrían armar combos con las laptops
 
 Para correrlo: tener creada la base del módulo 3, abrir el Query Tool sobre Ventas_Tech_DB y ejecutar el script.
+
+## Pre-entrega 5 - Consultas con JOINs
+
+Script: `modulo-5/m5_consultas_joins.sql`
+
+Usa la misma base del módulo 3 y cruza las 4 tablas. Tiene 4 consultas:
+
+1. Vista base (INNER JOIN): une ventas con clientes por `id_cliente`, con productos por `id_producto` y con categorias por `id_categoria`. Calcula `total_venta` como `cantidad * precio_unitario`. Es la fuente para Power BI: `clientes.ciudad` para agrupar y `categorias.nombre_categoria` para filtrar
+2. Clientes sin ventas (LEFT JOIN con IS NULL): muestra `nombre`, `email` y `fecha_registro` de los clientes que no tienen filas en ventas
+3. Productos sin ventas (LEFT JOIN con IS NULL): muestra `nombre_producto`, `nombre_categoria` y `precio` de los productos que no tienen filas en ventas
+4. Consolidado por canal (UNION ALL): la columna `origen` no está en las tablas, la creo como texto fijo y separo las ventas por quincena de marzo según `fecha_venta`
+
+Hallazgos principales (están comentados debajo de cada consulta):
+
+- Las 10 ventas cruzan sin perder filas y Computación es la categoría que más factura
+- No hay clientes ni productos sin ventas: los 5 clientes compraron y los 6 productos tuvieron movimiento
+- La primera quincena facturó 3.620 contra 2.824 de la segunda, por la venta de 2 Laptop Pro 15 del 5/3
+
+Para correrlo: tener creada la base del módulo 3, abrir el Query Tool sobre Ventas_Tech_DB y ejecutar el script.
