@@ -80,3 +80,4 @@ GROUP BY origen
 ORDER BY total_facturado DESC;
 -- Hallazgo: la primera quincena facturó 3.620 contra 2.824 de la segunda, con 5 ventas cada una.
 -- La diferencia viene de la venta de 2 Laptop Pro 15 del 5/3, que sola suma 2.400.
+
